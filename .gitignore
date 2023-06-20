@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings/
+bin/
+src/module-info.java
+target/
+test.json
+test-output/
