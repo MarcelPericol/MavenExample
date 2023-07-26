@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import utils.BaseTest;
 
-public class JSEAlertExample extends BaseTest {
+public class JsEAlertExample extends BaseTest {
 
 	@Test
 	public void simpleJsAlert() throws InterruptedException {
