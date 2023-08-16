@@ -1,7 +1,7 @@
 package curs17;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.Test;
@@ -13,8 +13,8 @@ public class RelativeLocatorsExample extends BaseTest{
 	/**
 	 * toLeftof
 	 * toRightof
-	 * below
 	 * above
+	 * below
 	 * near
 	 * 
 	 */
@@ -22,21 +22,19 @@ public class RelativeLocatorsExample extends BaseTest{
 	@Test
 	public void relativeLocatorsTest() {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		//h5[class*='sc_title']
-		//a[href='life-in-the-garden']
 		
-		//Relative locator --> toLeftof
+		//Relative locator --> toLeftOf
 		WebElement price10_20 = driver.findElement(RelativeLocator.with
 				(By.cssSelector("h5[class*='sc_title']")).
-				toRightOf(By.cssSelector("a[href='life-in-the-garden']")));
+				toLeftOf(By.cssSelector("a[href='life-in-the-garden']")));
 		jse.executeScript("arguments[0].setAttribute('style', 'background:orange; border:5px solid red')", price10_20);
-		
-		//Relative locator --> toRightof
+
+		//Relative locator --> toRightOf
 		WebElement price = driver.findElement(RelativeLocator.with
 				(By.cssSelector("h5[class*='sc_title']")).
-				toLeftOf(By.cssSelector("a[href='life-in-the-garden']")));
+				toRightOf(By.cssSelector("a[href='life-in-the-garden']")));
 		jse.executeScript("arguments[0].setAttribute('style', 'background:orange; border:5px solid red')", price);
-		
+
 		//Relative locator --> below
 		WebElement price3 = driver.findElement(RelativeLocator.with
 				(By.cssSelector("h5[class*='sc_title']")).
@@ -50,10 +48,15 @@ public class RelativeLocatorsExample extends BaseTest{
 		jse.executeScript("arguments[0].setAttribute('style', 'background:orange; border:5px solid red')", title);
 		
 		//Relative locator --> near
-		WebElement title2 = driver.findElement(RelativeLocator.with
-				(By.cssSelector("div[class='wpb_wrapper']>p")).
-				near(By.cssSelector("img[src*='books7']"),100));
+		WebElement title2 =  driver.findElement(RelativeLocator.with(By.cssSelector("div[class='wpb_wrapper']>p"))
+				.near(By.cssSelector("img[src*='books7']"), 100 ));
 		jse.executeScript("arguments[0].setAttribute('style', 'background:orange; border:5px solid red')", title2);
+
+	
+	
 	}
+	
+	
+	
 	
 }
